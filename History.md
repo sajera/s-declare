@@ -2,19 +2,17 @@
 
 
 
-1.2.3 / 2016-08-26 
+
+0.2.0 / 2016-10-29
 ------------------
-* Added more detailed description of errors
+* Node lazy injection.
 
 
-
-1.2.2 / 2016-08-25 
+0.1.0 / 2016-10-28
 ------------------
-* Added the ability to create a config file from multiple files
-* logger report parsing error
+* Some thoughts about angular.js injection. Like lazy load in node.
 
 
-
-1.2.1 / 2016-08-23 
+0.0.0 / 2016-10-25 
 ------------------
-* Relise
+* Make idea of the concept, of the lazy declare for node requirement.
