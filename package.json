@@ -1,6 +1,6 @@
 {
   "name": "s-declare",
-  "version": "1.2.3",
+  "version": "1.2.7",
   "description": "Node modules injection",
   "main": "index.js",
   "scripts": {

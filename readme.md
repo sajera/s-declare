@@ -20,7 +20,7 @@ module.exports = require('s-declare')('test', function ( path, http, url ) {
 ```
 **Note:**	With this declaration, you can overwrite a third-party module
 
->**Keep in mind:** Keep in mind - it will still be available by means of a native call (require)
+>**Keep in mind:** It will still be available by means of a native call (require)
 
 	
 Creating npm package
