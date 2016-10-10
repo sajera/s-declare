@@ -1,7 +1,7 @@
 {
   "name": "s-declare",
   "version": "1.2.3",
-  "description": "Node lazy injection",
+  "description": "Node modules injection",
   "main": "index.js",
   "scripts": {
     "test": "node test/test.js"
@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/sajera/s-declare/issues"
   },
-  "keywords": [ "s-declare"],
+  "keywords": ["s-declare", "declare", "declarator"],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
   "dependencies": {}
