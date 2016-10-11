@@ -67,7 +67,7 @@ function declare ( name, moduleWrap ) {
  * @param: { Object } - store to context binding
  * @returns: { Function } - declarator
  */
-module.exports['privat'] = privat.bind({});
+module.exports['privat'] = privat.bind({}, 'default');
 /*-------------------------------------------------
 	to exclude privat modules from global modules
 	you may create store with id
