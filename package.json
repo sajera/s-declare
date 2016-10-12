@@ -1,10 +1,11 @@
 {
   "name": "s-declare",
-  "version": "1.2.8",
-  "description": "Node modules injection",
+  "version": "1.5.1",
+  "description": "Node modules declaration",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "debug": "devtool test/test"
   },
   "homepage": "https://github.com/sajera/s-declare#readme",
   "repository": {

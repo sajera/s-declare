@@ -6,49 +6,63 @@ An easy way to create named modules within the application.
 npm i s-declare --save
 ```
 
-Declaration for named module
+Declaration of module
 --------------
-Arguments it's a modules (your or from Node.js require) which be applied to function for your creating module. Of course, we can use the standard way.
+Arguments it's a modules which be applied to function for creating module. Of course, we can use the standard way.
 
 ```javascript
-
-module.exports = require('s-declare')('test', function ( path, http, url ) {
+var declare = require('s-declare');
+// write like node module and declaration module
+module.exports = declare('test', function ( path, http, url ) {
 	// code of module
 	return {}; // stored like a module 'test'
 });
 
+// got it
+declare.require('test') // => stored module 'test'
 ```
-**Note:**	With this declaration, you can overwrite a third-party module
 
->**Keep in mind:** It will still be available by means of a native call (require)
+
+
 
 	
-Creating npm package
+More complicated
 --------------
-When we create a separate module, and do not want to be part of the grid. Declaring a private repository for modules.
+When we create a separate module, create a declaration of files related to this module.
 
 ```javascript
+var declare = require('s-declare');
 
-module.exports = require('s-declare').privat('hash-for-unique-store')('test', function ( path, http, url ) {
-	// code of module
-	return {}; // stored like a module 'test' in 'hash-for-unique-store'
-});
-
+// then create module
+module.exports = declare('myModule', ['path', 'http', 'url', './test/test.lib.js',
+    function ( path, http, url, test ) {
+    	// code of module
+    	return {}; // stored like a module
+    }]);
+    
+if( declare.require('myModule') == module.exports ) {
+	console.log( 'Completely usability victory !!!' );
+} else {
+	console.log( 'Completely fail ...' );
+};
 ```
-
-**Note:** Each declarator has a public list of its modules.
-```javascript
-require('s-declare').privat('hash-for-unique-store').store
-```
-
-Minimization ?
+No store
 --------------
+When we create a module for NPM no need stored parts of module in declarator.This is not just pointless and even harmful. We can only use the declarator for file management. To create a user-friendly module supplier.
 
 ```javascript
+var declare = require('s-declare');
 
-module.exports = require('s-declare')('test', [path, http, url, function ( path, http, url ) {
-	// code of module
-	return {}; // stored like a module 'test' in 'hash-for-unique-store'
-}]);
-
+// with name null, a declarator isn't stored module
+module.exports = declare(null, [
+    'http', './lib/part-1.js', './lib/part-2.js', './lib/part-3.js', './lib/part-4.js',
+    function ( http, part1, part2 ,part3, part4 ) {
+    	// code prepering/wrapping
+    	return { // stored like a module
+    	    util: part1 ? part2 : part3,
+    	    provider: function () {
+    	        return Object.assign({}, part4);
+    	    }
+    	};
+    }]);
 ```

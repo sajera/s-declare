@@ -1,51 +1,46 @@
 
 'use strict';
+console.log('test');
+console.time('test');
 
 var declare = require('../index.js');
 
 if ( typeof window != 'undefined' ) {
 	window.declare = declare;
-	window.custom = declare.privat('custom');
 }
 
 /*-------------------------------------------------
-	PUBLIC		
+
+		TEST MUDULES
+
 ---------------------------------------------------*/
-declare('test1', function ( path, http, url ) {
-	// test module 1
-	return {
-		path: path,
-		http: http,
-		url: url
-	};
-});
-require('../index.js')('test2', function ( path, http, url, test1 ) {
-	// test module 1
-	return {
-		path: path,
-		http: http,
-		url: url,
-		test1: test1
-	};
+declare.readFiles(['./test/test.lib.js']);
+
+declare('test1', ['./test/test.js', './index.js', function ( test, declare ) {
+	// console.log('test1 arguments', arguments);
+	return {test: 1};
+}]);
+
+declare('test2', function ( test1 ) {
+	// console.log('test2 arguments', arguments);
+	return {test: 2};
 });
 
-/*-------------------------------------------------
-	PRIVAT (inside the module)
----------------------------------------------------*/
-require('../index.js').privat('custom')('test1', function ( path, http, url ) {
-	// test module 1
-	return {
-		path: path,
-		http: http,
-		url: url
-	};
+module.exports = declare('test3', function ( test1, test2, testLib ) {
+	// console.log('test3 arguments', arguments);
+	return {test: 3};
 });
 
-require('../index.js').privat('custom')('test2',function(path,http,url){
-	// test module 1
-	return {
-		path: path,
-		http: http,
-		url: url
-	};
+declare(null, function ( test1, test2, testLib ) {
+	// console.log('null arguments', arguments);
+	return {test: null};
 });
+
+
+if( declare.require('test3') == module.exports ) {
+	console.log( 'Completely usability victory !!!' );
+} else {
+	console.log( 'Completely fail ...' );
+};
+
+console.timeEnd('test');
