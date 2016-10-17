@@ -1,3 +1,6 @@
+
+[![NPM version][npm-image]][npm-url]
+
 s-declare
 ===============
 An easy way to create named modules within the application.
@@ -66,3 +69,7 @@ module.exports = declare(null, [
     	};
     }]);
 ```
+
+
+[npm-image]: https://badge.fury.io/js/s-declare.svg
+[npm-url]: https://npmjs.org/package/s-declare
