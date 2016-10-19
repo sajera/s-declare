@@ -5,12 +5,14 @@ s-declare
 ===============
 An easy way to create named modules within the application.
 
+### installation
 ```shell
 npm i s-declare --save
 ```
 
 Declaration of module
 --------------
+
 Arguments it's a modules which be applied to function for creating module. Of course, we can use the standard way.
 
 ```javascript
@@ -31,6 +33,7 @@ declare.require('test') // => stored module 'test'
 	
 More complicated
 --------------
+
 When we create a separate module, create a declaration of files related to this module.
 
 ```javascript
@@ -49,8 +52,10 @@ if( declare.require('myModule') == module.exports ) {
 	console.log( 'Completely fail ...' );
 };
 ```
+
 No store
 --------------
+
 When we create a module for NPM no need stored parts of module in declarator.This is not just pointless and even harmful. We can only use the declarator for file management. To create a user-friendly module supplier.
 
 ```javascript
