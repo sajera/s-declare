@@ -14,7 +14,10 @@ if ( typeof window != 'undefined' ) {
 		TEST MUDULES
 
 ---------------------------------------------------*/
-declare.readFiles(['./test/test.lib.js']);
+declare('testLib', function ( http, path ) {
+	// console.log('testLib arguments', arguments);
+	return { test: 'lib', http: http };
+});
 
 declare('test1', ['./test/test.js', './index.js', function ( test, declare ) {
 	// console.log('test1 arguments', arguments);
