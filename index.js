@@ -57,7 +57,6 @@
 			if ( util.storage[id] ) throw new Error('Module '+id+' already exist.');
 			return util.storage[id] = module;
 		} else return module;
-		
 	}
 	/*-------------------------------------------------
 		ADDITIONAL
@@ -72,18 +71,16 @@
 	 * @returns: { Object }
 	 */
 	declare.extendStorage = function ( extend ) {
-		if ( typeof extend === 'function' ) {
-			extend.call(util.storage);
-		} else if ( extend && typeof extend === 'object' && !util.isArray(extend) ) {
+		if ( typeof extend === 'function' ) extend.call(util.storage);
+		else if ( extend && !util.isArray(extend) && typeof extend === 'object' )
 			Object.assign(util.storage, extend);
-		}
 	}
 
 	/**
 	 * EXPORT
 	 * @public
 	 */
-	if ( typeof process ) module.exports = declare;
+	if ( typeof process == 'object' ) module.exports = declare;
 	else global['declare'] = declare;
 })(
 /*-------------------------------------------------
@@ -93,7 +90,7 @@
 /*-------------------------------------------------
 	UTIL of declarator
 ---------------------------------------------------*/
-	new function () {
+	new function Util () {
 		var util = this;
 		// is array
 		var ts = ({}).toString;
