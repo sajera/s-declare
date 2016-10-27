@@ -79,5 +79,5 @@ module.exports = declare(null, [
 
 [npm-image]: https://badge.fury.io/js/s-declare.svg
 [npm-url]: https://npmjs.org/package/s-declare
-[license-image]: http://img.shields.io/npm/l/is-arguments.svg
+[license-image]: http://img.shields.io/npm/l/s-declare.svg
 [license-url]: LICENSE
