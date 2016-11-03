@@ -1,6 +1,6 @@
 {
   "name": "s-declare",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Node modules declaration",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,14 @@
   "bugs": {
     "url": "https://github.com/sajera/s-declare/issues"
   },
-  "keywords": ["s-declare", "declare", "declarator"],
+  "keywords": [
+    "s-declare",
+    "declare",
+    "declarator"
+  ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "s-is": "^1.0.0"
+  }
 }

@@ -4,8 +4,9 @@ console.log('test');
 console.time('test');
 
 var declare = require('../index.js');
+var is = require('s-is');
 
-if ( typeof window != 'undefined' ) {
+if ( is('platform', 'browser') ) {
 	window.declare = declare;
 }
 
