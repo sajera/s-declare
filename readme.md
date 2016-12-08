@@ -6,10 +6,18 @@ s-declare
 ===============
 An easy way to create named modules within the application.
 
-### installation
+### installation for ```Node.js```
+
 ```shell
 npm i s-declare --save
 ```
+
+### installation for ```Browser```
+
+```shell
+bower i s-declare --save
+```
+
 
 Declaration of module
 --------------
@@ -20,18 +28,19 @@ Arguments it's a modules which be applied to function for creating module. Of co
 var declare = require('s-declare');
 // write like node module and declaration module
 module.exports = declare('test', function ( path, http, url ) {
-	// code of module
-	return {}; // stored like a module 'test'
+    require('path') == path; // => true
+    // code of module
+    return {}; // stored like a module 'test' it can be any
 });
 
 // got it
-declare.require('test') // => stored module 'test'
+declare.require('test'); // => stored module 'test'
 ```
 
 
 
 
-	
+    
 More complicated
 --------------
 
@@ -43,14 +52,17 @@ var declare = require('s-declare');
 // then create module
 module.exports = declare('myModule', ['path', 'http', 'url', './test/test.lib.js',
     function ( path, http, url, test ) {
-    	// code of module
-    	return {}; // stored like a module
+        // code of module
+        return {}; // stored like a module
     }]);
     
-if( declare.require('myModule') == module.exports ) {
-	console.log( 'Completely usability victory !!!' );
+if(
+    declare.require('myModule') == module.exports
+    && declare.require('myModule') == require('./path/to/file')
+) {
+    console.log( 'Completely usability victory !!!' );
 } else {
-	console.log( 'Completely fail ...' );
+    console.log( 'Completely fail ...' );
 };
 ```
 
@@ -64,15 +76,20 @@ var declare = require('s-declare');
 
 // with name null, a declarator isn't stored module
 module.exports = declare(null, [
-    'http', './lib/part-1.js', './lib/part-2.js', './lib/part-3.js', './lib/part-4.js',
+    'http',
+    './lib/part-1.js',
+    './lib/part-2.js',
+    './lib/part-3.js',
+    './lib/part-4.js',
     function ( http, part1, part2 ,part3, part4 ) {
-    	// code prepering/wrapping
-    	return { // stored like a module
-    	    util: part1 ? part2 : part3,
-    	    provider: function () {
-    	        return Object.assign({}, part4);
-    	    }
-    	};
+        
+        return {
+            util: util,
+            part1: part1,
+            readOnly: function () {
+                return Object.assign({}, part3, part4);
+            }
+        };
     }]);
 ```
 

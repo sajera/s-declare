@@ -2,9 +2,10 @@
   "name": "s-declare",
   "version": "1.6.2",
   "description": "Node modules declaration",
-  "main": "index.js",
+  "main": "declare.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "gulp concat&gulp minify",
     "debug": "devtool test/test"
   },
   "homepage": "https://github.com/sajera/s-declare#readme",
@@ -22,7 +23,13 @@
   ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "s-is": "^1.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-order": "^1.1.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.13.0",
+    "s-is": "^1.2.0"
   }
 }
