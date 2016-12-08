@@ -1,0 +1,32 @@
+{
+    "name": "s-declare",
+    "main": "declare.min.js",
+    "version": "1.7.0",
+    "private": false,
+    "description": "A simple way to ensure the correctness of the target data.",
+    "ignore": [
+        "node_modules",
+        "bower_components",
+        "package.json",
+        "bower.json",
+        "gulpfile.js",
+        "lib",
+        "old",
+        "test"
+    ],
+    "keywords": [
+        "s-declare",
+        "declare"
+    ],
+    "homepage": "https://github.com/sajera/s-declare",
+    "authors": [
+        "Sajera: Serhii P <allsajera@gmail.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sajera/s-declare.git"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {}
+}
